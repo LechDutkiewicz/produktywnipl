@@ -1,0 +1,174 @@
+// Buttons
+
+.btn {
+  min-width: 160px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 12px 15px 13px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+
+  .gecko &,
+  .ie & {
+    padding-top: 14px;
+    padding-bottom: 11px;
+  }
+
+  > i {
+    margin-left: 8px;
+  }
+
+  @include media-breakpoint-up(md) {
+    min-width: 140px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    min-width: 160px;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &--border-white {
+    border-color: rgba(white, 0.8);
+    color: white;
+
+    &:hover,
+    &:focus {
+      border-color: $color-secondary;
+      background-color: $color-secondary;
+      color: $color-secondary-contrast;
+    }
+  }
+
+  &--border-green {
+    border-color: $color-green;
+    color: $color-green;
+
+    &:hover,
+    &:focus {
+      background: $color-green;
+      color: white;
+    }
+  }
+
+  &--green {
+    border-color: $color-green;
+    background-color: $color-green;
+    color: white;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: rgba($color-green, 0.8);
+      border-color: rgba($color-green, 0.1);
+    }
+  }
+
+  &--white {
+    background-color: #fff;
+    border-color: #fff;
+    color: $color-green;
+
+    &:hover {
+      background-color: $color-green;
+      border-color: $color-green;
+      color: #fff;
+    }
+  }
+
+  &--blue {
+    border-color: nth($color-palette, 2);
+    background-color: nth($color-palette, 2);
+    color: white;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: rgba(nth($color-palette, 2), 0.8);
+      border-color: rgba(nth($color-palette, 2), 0.1);
+    }
+  }
+
+  &--secondary {
+    border-color: $color-secondary;
+    background-color: $color-secondary;
+    color: white;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: rgba($color-secondary, 0.8);
+      border-color: rgba($color-secondary, 0.1);
+    }
+  }
+
+  &--border-secondary {
+    border-color: $color-secondary;
+    color: $color-secondary;
+
+    &:hover,
+    &:focus {
+      background-color: $color-secondary;
+      color: white;
+    }
+  }
+
+  &--large {
+    font-size: 1rem;
+    padding: 17px 20px 20px;
+    line-height: 1;
+
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      min-width: 270px;
+    }
+
+    .gecko &,
+    .ie & {
+      padding-top: 19px;
+      padding-bottom: 18px;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--border-light-green {
+    border-color: $color-text__label;
+    color: $color-text__label;
+
+    &:hover {
+      background: $color-text__label;
+      color: white;
+    }
+  }
+}
+
+button.btn--large {
+  padding-top: 18px;
+  padding-bottom: 19px;
+}
+
+input[type="submit"].btn.btn--large {
+  padding: 19px 20px 18px;
+}
+
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+.edd-submit {
+  cursor: pointer;
+}

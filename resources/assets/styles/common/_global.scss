@@ -1,0 +1,39 @@
+// Base styles
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Montserrat', 'Helvetica', 'sans-serif';
+}
+
+.container {
+  &--padding {
+    @include media-breakpoint-up(md) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    @include media-breakpoint-up(xl) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--trainings {
+    padding-top: 65px;
+    margin-bottom: -54px;
+  }
+
+  &--contact {
+    padding-bottom: 0;
+  }
+}

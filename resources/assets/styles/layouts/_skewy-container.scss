@@ -1,0 +1,128 @@
+.skewy {
+  transform: skewY((-$global-skew) + deg);
+  position: relative;
+  z-index: 2;
+
+  &__container {
+    transform: skewY($global-skew + deg) translateZ(0);
+    // simple trigonometry,
+    // 0.076 is a tan($global-skew), so tan(4.35) in this case
+    margin: calc(50vw * -0.076) 0;
+    padding: calc(50vw * 0.076) 0;
+    margin: -3.8vw 0;
+
+    @include media-breakpoint-up(lg) {
+      padding: calc(50vw * 0.076 + 100px) 0;
+    }
+  }
+
+  &.no-padding-top .skewy__container {
+    padding-top: 0;
+  }
+
+  &__bg {
+
+  }
+
+  &--white {
+    background-color: white;
+  }
+
+  &--gray {
+    background-color: #f4f7f8;
+  }
+
+  &--dark {
+    background-color: #516d96;
+    color: white;
+  }
+
+  + section {
+    padding-top: calc(50vw * 0.076 * 2);
+    padding-bottom: calc(50vw * 0.076 * 2);
+
+    &.skewy {
+      //margin-top: calc(50vw * 0.076);
+    }
+  }
+
+  + .bg {
+    margin-top: calc(50vw * -0.076);
+  }
+}
+
+.bg {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include media-breakpoint-up(lg) {
+    background-attachment: fixed;
+  }
+
+  &--dark {
+    background-color: #516d96;
+    color: white;
+  }
+
+  &--lightblue {
+    background-color: #ebf4f6;
+  }
+
+  &--gray {
+    background-color: #fafcfd;
+  }
+
+  &--steps {
+    background-position: left center;
+  }
+}
+
+.skewy__container {
+
+  #blog & {
+    padding-bottom: 128px;
+    padding-top: 186px;
+  }
+
+  #klienci & {
+    padding-top: 90px;
+    padding-bottom: 48px;
+  }
+
+  #kontakt & {
+    padding-bottom: calc(3.8vw + 10px);
+    margin-bottom: 0;
+  }
+}
+
+.single-post #kontakt .skewy__container {
+  padding-top: 0;
+}
+
+.container {
+
+  &--about {
+    padding-top: 70px;
+    padding-bottom: 18px;
+  }
+}
+
+.shadow-box {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  transform: translateZ(0);
+
+  @include media-breakpoint-up(md) {
+    box-shadow: 0 12px 13px rgba(black, 0.09);
+    border-radius: 5px;
+    border: 1px solid rgba(#ebebeb, 0.47);
+  }
+
+  &--two-third {
+    width: 66.6666%;
+  }
+
+  &--white {
+    background-color: white;
+  }
+}
