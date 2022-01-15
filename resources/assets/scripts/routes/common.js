@@ -46,74 +46,74 @@ export default {
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
-    $('form.getresponse-form').on('submit', function (e) {
-      e.preventDefault()
-      const formEmail = $(this).find('.email')
-      const formName = $(this).find('.name')
-      const formCampaign = $(this).find('.campaign_token')
-      const formSubmit = $(this).find('.btn--subscribe')
-      const gaAction = $(this).find('.btn--subscribe').data('ga-action');
-      const initSubmitVal = formSubmit.val();
-      const thankYouPage = $(this).find('[name="thankyou_url"]').val();
+    // $('form.getresponse-form').on('submit', function (e) {
+    //   e.preventDefault()
+    //   const formEmail = $(this).find('.email')
+    //   const formName = $(this).find('.name')
+    //   const formCampaign = $(this).find('.campaign_token')
+    //   const formSubmit = $(this).find('.btn--subscribe')
+    //   const gaAction = $(this).find('.btn--subscribe').data('ga-action');
+    //   const initSubmitVal = formSubmit.val();
+    //   const thankYouPage = $(this).find('[name="thankyou_url"]').val();
 
-      formSubmit.val('Momencik...')
+    //   formSubmit.val('Momencik...')
 
-      $.ajax({
-        url: ajax_object.ajax_url, // url where to submit the request
-        type : "POST", // type of action POST || GET
-        // dataType : 'json', // data type
-        data : {
-          action: 'handle_getresponse',
-          email: formEmail.val(),
-          name: formName.val(),
-          campaignToken: formCampaign.val()
-        },
-        success : function(result) {
-            // you can see the result from the console
-            // tab of the developer tools
-            const res = JSON.parse(result);
+    //   $.ajax({
+    //     url: ajax_object.ajax_url, // url where to submit the request
+    //     type : "POST", // type of action POST || GET
+    //     // dataType : 'json', // data type
+    //     data : {
+    //       action: 'handle_getresponse',
+    //       email: formEmail.val(),
+    //       name: formName.val(),
+    //       campaignToken: formCampaign.val()
+    //     },
+    //     success : function(result) {
+    //         // you can see the result from the console
+    //         // tab of the developer tools
+    //         const res = JSON.parse(result);
 
-            // add to dataLayer for Google Tag Manager
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              "event":                "subscriptionAttempt", 
-              "subscriptionResponse": res.httpStatus,
-              "subscriptionPlace":    gaAction,
-            });
+    //         // add to dataLayer for Google Tag Manager
+    //         window.dataLayer = window.dataLayer || [];
+    //         window.dataLayer.push({
+    //           "event":                "subscriptionAttempt", 
+    //           "subscriptionResponse": res.httpStatus,
+    //           "subscriptionPlace":    gaAction,
+    //         });
 
-            if (res.httpStatus === 409) {
-              formSubmit.val('Jesteś już zapisany!')
-            }
+    //         if (res.httpStatus === 409) {
+    //           formSubmit.val('Jesteś już zapisany!')
+    //         }
 
-            if (res.httpStatus === 400) {
-              formSubmit.val('Coś poszło nie tak, spróbuj jeszcze raz!')
-            }
+    //         if (res.httpStatus === 400) {
+    //           formSubmit.val('Coś poszło nie tak, spróbuj jeszcze raz!')
+    //         }
 
-            if (res.httpStatus === 202) {
-              formSubmit.val('Zostałeś dopisany do listy!')
-              window.location = thankYouPage;
-            }
+    //         if (res.httpStatus === 202) {
+    //           formSubmit.val('Zostałeś dopisany do listy!')
+    //           window.location = thankYouPage;
+    //         }
 
-            setTimeout(() => {
-              formSubmit.val(initSubmitVal)
-              formEmail.val('')
-              formName.val('')
-            }, 3000);
-          },
-          error: function(xhr, resp, text) {
-            console.log(xhr, resp, text);
-            formSubmit.val('Coś poszło nie tak, spróbuj za chwilę.')
+    //         setTimeout(() => {
+    //           formSubmit.val(initSubmitVal)
+    //           formEmail.val('')
+    //           formName.val('')
+    //         }, 3000);
+    //       },
+    //       error: function(xhr, resp, text) {
+    //         console.log(xhr, resp, text);
+    //         formSubmit.val('Coś poszło nie tak, spróbuj za chwilę.')
 
-            setTimeout(() => {
-              formSubmit.val(initSubmitVal)
-              formEmail.val('')
-              formName.val('')
-            }, 3000);
-          }
-        })
+    //         setTimeout(() => {
+    //           formSubmit.val(initSubmitVal)
+    //           formEmail.val('')
+    //           formName.val('')
+    //         }, 3000);
+    //       }
+    //     })
 
-      return false;
-    });
+    //   return false;
+    // });
 
   },
 };
