@@ -13,7 +13,7 @@
     {{-- @include('modules.interviews') --}}
     @include('modules.courses')
     @include('modules.szkolenia')
-    @include('modules.newsletter')
+    @include('modules.newsletter', ['origin' => 'home-footer'])
   @endwhile
 @endsection
 

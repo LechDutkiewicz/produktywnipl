@@ -19,6 +19,6 @@
 
     @php(wp_reset_postdata())
     
-    @include('modules.newsletter')
+    @include('modules.newsletter', ['origin' => get_the_title() . '-footer'])
   @endwhile
 @endsection

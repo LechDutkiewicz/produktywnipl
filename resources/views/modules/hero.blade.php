@@ -11,7 +11,7 @@ $image = get_field('hero_bg');
       <div class="page-hero__lead">
         {{ the_field('hero_content') }}
       </div>
-        @include('modules.newsletter-form')
+        @include('modules.newsletter-form', ['origin' => 'home-hero'])
       </form>
     </div>
   </div>

@@ -58,6 +58,6 @@
     @endcomponent
   @endwhile
 
-  @include('modules.newsletter')
+  @include('modules.newsletter', ['origin' => get_the_title() . '-footer'])
   @include('modules.latest-posts', ['simple' => true])
 @endsection

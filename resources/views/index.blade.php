@@ -44,6 +44,6 @@ $paged = (get_query_var('paged')) ? true : false;
   </div>
   @endcomponent
 
-@include('modules.newsletter')
+@include('modules.newsletter', ['origin' => 'blog-footer'])
 @endsection
 
